@@ -5,7 +5,7 @@ function Description() {
       <h1 className="text-3xl md:text-5xl font-bold my-2">
         Fall Limited Edition Sneakers
       </h1>
-      <p className="text-slate-500 my-10">
+      <p className="text-slate-500 my-8">
         These low-profile sneakers are your perfect casual wear companion.
         Featuring a durable rubber outer sole, they'll withstand everything the
         weather can offer.

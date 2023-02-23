@@ -5,19 +5,19 @@ import cartIcon from "./images/icon-cart.svg";
 import avatar from "./images/image-avatar.png";
 
 function Nav() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <div className="">
       {/* Mobile Menu (sidebar) */}
       <div
         className={
-          (open ? "" : "hidden ") +
-          "fixed z-10 h-full bg-white w-60 font-bold pt-6 px-5 transition ease-in-out delay-150"
+          "h-full fixed z-10 top-0 left-0 overflow-hidden transition-width duration-300 bg-white font-bold " +
+          (open ? " w-60 " : " w-0 ")
         }
       >
         <div className="flex flex-col ">
-          <div className="mb-10">
+          <div className="mb-2 px-5 py-4">
             <button className="my-2" onClick={() => setOpen(false)}>
               <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -28,19 +28,19 @@ function Nav() {
               </svg>
             </button>
           </div>
-          <a className="my-2" href="#">
+          <a className="my-2 px-5 py-1" href="#">
             Collections
           </a>
-          <a className="my-2" href="#">
+          <a className="my-2 px-5 py-1" href="#">
             Men
           </a>
-          <a className="my-2" href="#">
+          <a className="my-2 px-5 py-1" href="#">
             Women
           </a>
-          <a className="my-2" href="#">
+          <a className="my-2 px-5 py-1" href="#">
             About
           </a>
-          <a className="my-2" href="#">
+          <a className="my-2 px-5 py-1" href="#">
             Contact
           </a>
         </div>
@@ -48,9 +48,9 @@ function Nav() {
 
       {/* Navbar from left to right: mobile hamburger button, logos, links, cart, avatar */}
       {/* On Mobile: display hamburger/logo, then hide links, then display cart/avatar */}
-      <div className="flex px-5">
+      <div className="flex px-5 md:px-0">
         {/* Hamburger */}
-        <div className="flex lg:hidden">
+        <div className="flex lg:hidden mr-2">
           <button className="" onClick={() => setOpen(true)}>
             <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
               <path

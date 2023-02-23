@@ -1,21 +1,23 @@
 import Gallery from "./Gallery.js";
 import Description from "./Description.js";
-import MobileNav from "./MobileNav.js";
 import Nav from "./Nav.js";
 
 import "./App.css";
 
 function App() {
   return (
-    <div className="App max-w-screen-lg mx-auto px-6 md:px-10">
-      {/* Mobile Navbar */}
-
+    <div className="App max-w-screen-xl mx-auto md:px-10">
       {/* Navbar */}
-      <Nav></Nav>
+      <div className="">
+        <Nav></Nav>
+      </div>
 
-      <div className="grid md:grid-cols-2 md:mt-16 md:gap-14">
+      {/* 2 planes on desktop, 1 plane on mobile */}
+      {/* Gallery is on left plane, Description/Buttons on right plane */}
+      <div className="grid md:grid-cols-2 md:mt-16 md:gap-14 mb-20">
         <Gallery></Gallery>
-        <div className="p-5 grid content-center">
+
+        <div className="grid content-center px-5 md:px-0">
           <div>
             {/* Description Section */}
             <Description></Description>

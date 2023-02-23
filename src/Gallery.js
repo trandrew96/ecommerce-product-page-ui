@@ -27,7 +27,7 @@ function Gallery() {
       className={index === CurrentImageIndex ? active_thumbnail_class : ""}
       key={index}
     >
-      <img src={image.thumbnail} className="rounded-lg" />
+      <img src={image.thumbnail} className="rounded-lg" alt="gallery button" />
     </button>
   ));
 
@@ -36,8 +36,11 @@ function Gallery() {
       <img
         src={displayed_images[CurrentImageIndex].img}
         className="md:rounded-lg"
+        alt="main gallery image"
       />
-      <div className="grid grid-cols-4 gap-4 mt-10">{thumbnails}</div>
+      <div className="grid grid-cols-4 gap-4 mt-10 px-5 md:px-0 mb-5 md:mb-0">
+        {thumbnails}
+      </div>
     </div>
   );
 }

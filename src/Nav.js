@@ -5,20 +5,19 @@ import cartIcon from "./images/icon-cart.svg";
 import avatar from "./images/image-avatar.png";
 
 function Nav() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
-    <div>
-      {/* Mobile */}
+    <div className="">
+      {/* Mobile Menu (sidebar) */}
       <div
         className={
           (open ? "" : "hidden ") +
-          "fixed z-10 h-full bg-white w-60 font-bold pt-6"
+          "fixed z-10 h-full bg-white w-60 font-bold pt-6 px-5 transition ease-in-out delay-150"
         }
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
           <div className="mb-10">
-            {/* Close Button */}
             <button className="my-2" onClick={() => setOpen(false)}>
               <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -46,8 +45,12 @@ function Nav() {
           </a>
         </div>
       </div>
-      <div className="block bg-white w-full overflow-hidden relative">
-        <div className="flex ">
+
+      {/* Navbar from left to right: mobile hamburger button, logos, links, cart, avatar */}
+      {/* On Mobile: display hamburger/logo, then hide links, then display cart/avatar */}
+      <div className="flex px-5">
+        {/* Hamburger */}
+        <div className="flex lg:hidden">
           <button className="" onClick={() => setOpen(true)}>
             <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -57,59 +60,63 @@ function Nav() {
               />
             </svg>
           </button>
+        </div>
 
-          <div className="flex items-center">
+        {/* Logo */}
+        <div className="flex items-center lg:border-b-2 border-dark-grayish-blue">
+          <a
+            className="md:flex items-center border-b-4 border-transparent lg:mr-8 ml-3 lg:ml-0"
+            href="#"
+          >
+            <img className="" src={logo} alt="sneakers logo" />
+          </a>
+        </div>
+
+        {/* Entire right side of navbar. Keep links, cart, profile in same div so border-bottom works nicely */}
+        <div className="lg:border-b-2 border-dark-grayish-blue flex items-center grow">
+          {/* Links (hidden on mobile) */}
+          <div className="hidden lg:flex text-dark-grayish-blue font-bold">
+            <a
+              className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 md:flex items-center"
+              href="#"
+            >
+              Collections
+            </a>
+            <a
+              className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
+              href="#"
+            >
+              Men
+            </a>
+            <a
+              className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
+              href="#"
+            >
+              Women
+            </a>
+            <a
+              className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
+              href="#"
+            >
+              About
+            </a>
+            <a
+              className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
+              href="#"
+            >
+              Contact
+            </a>
+          </div>
+
+          {/* Cart, Profile */}
+          <div className="flex ml-auto">
             <button className="mx-10">
-              <img src={cartIcon} />
+              <img src={cartIcon} alt="cart icon" />
             </button>
             <button className="w-16 hover:bg-orange p-1 rounded-full">
-              <img src={avatar} />
+              <img src={avatar} alt="avatar" />
             </button>
           </div>
-        </div>
-      </div>
-
-      <div className="hidden md:flex items-center border-b-2 border-dark-grayish-blue text-dark-grayish-blue font-bold">
-        <a className="border-b-4 border-transparent mr-8" href="#">
-          <img className="" src={logo} />
-        </a>
-        <a
-          className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
-          href="#"
-        >
-          Collections
-        </a>
-        <a
-          className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
-          href="#"
-        >
-          Men
-        </a>
-        <a
-          className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
-          href="#"
-        >
-          Women
-        </a>
-        <a
-          className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
-          href="#"
-        >
-          About
-        </a>
-        <a
-          className="h-32 box-border border-b-4 border-transparent hover:border-orange mx-8 flex items-center"
-          href="#"
-        >
-          Contact
-        </a>
-        <div className="items-center flex ml-auto">
-          <button className="mx-10">
-            <img src={cartIcon} />
-          </button>
-          <button className="w-16 hover:bg-orange p-1 rounded-full">
-            <img src={avatar} />
-          </button>
         </div>
       </div>
     </div>

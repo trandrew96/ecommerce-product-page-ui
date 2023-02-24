@@ -5,7 +5,7 @@ import cartIcon from "./images/icon-cart.svg";
 import avatar from "./images/image-avatar.png";
 
 function Nav() {
-  const [open, setOpen] = useState(true);
+  const [sidebarOpen, setOpen] = useState(false);
 
   return (
     <div className="">
@@ -13,7 +13,7 @@ function Nav() {
       <div
         className={
           "h-full fixed z-10 top-0 left-0 overflow-hidden transition-width duration-300 bg-white font-bold " +
-          (open ? " w-60 " : " w-0 ")
+          (sidebarOpen ? " w-60 " : " w-0 ")
         }
       >
         <div className="flex flex-col ">

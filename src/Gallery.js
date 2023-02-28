@@ -10,6 +10,8 @@ import thumbnail3 from "./images/image-product-3-thumbnail.jpg";
 import thumbnail4 from "./images/image-product-4-thumbnail.jpg";
 
 import closeIcon from "./images/icon-close.svg";
+import iconPrevious from "./images/icon-previous.svg";
+import iconNext from "./images/icon-next.svg";
 
 const displayed_images = [
   { img: product1, thumbnail: thumbnail1 },
@@ -21,6 +23,7 @@ const displayed_images = [
 const active_thumbnail_class = "bg-orange p-1 md:rounded-lg ";
 
 function Gallery() {
+  const numImages = displayed_images.length;
   const [CurrentImageIndex, setCurrentImageIndex] = useState(0);
   const [ModalVisible, SetModalVisiblity] = useState(true);
 
@@ -49,7 +52,7 @@ function Gallery() {
         {thumbnails}
       </div>
 
-      {/* Modal Div */}
+      {/* Lightbox */}
       <div
         className={
           (ModalVisible ? "" : "hidden") +
@@ -57,17 +60,43 @@ function Gallery() {
         }
       >
         {/* Modal Content */}
-        <div className="max-w-screen-sm mx-auto px-10">
-          <div className="text-right">
-            <button
-              onClick={() => SetModalVisiblity(false)}
-              className="text-right"
-            >
+        <div className="max-w-screen-sm mx-auto ">
+          {/* Main lightbox image, previous/next buttons, close btn*/}
+          <div className="relative px-5 text-right">
+            <button onClick={() => SetModalVisiblity(false)}>
               <img src={closeIcon} />
             </button>
+            {/* previous button */}
+            <button
+              onClick={() => {
+                if (CurrentImageIndex == 0) {
+                  setCurrentImageIndex(numImages - 1);
+                } else {
+                  setCurrentImageIndex(CurrentImageIndex - 1);
+                }
+              }}
+              className="bg-white w-10 h-10 rounded-full absolute left-0 top-1/2"
+            >
+              <img src={iconPrevious} class="mx-auto" />
+            </button>
+            {/* Next button */}
+            <button
+              onClick={() =>
+                setCurrentImageIndex((CurrentImageIndex + 1) % numImages)
+              }
+              className="bg-white w-10 h-10 rounded-full absolute right-0 top-1/2"
+            >
+              <img className="mx-auto" src={iconNext} />
+            </button>
+
+            {/* Main Lightbox Image */}
+            <img
+              className="mx-auto rounded-xl"
+              src={displayed_images[CurrentImageIndex].img}
+            />
           </div>
-          <img className="" src={displayed_images[CurrentImageIndex].img} />
-          <div className="grid grid-cols-4 gap-4 mt-10 px-5 md:px-0 mb-5 md:mb-0">
+          {/* Thumbnails in lightbox */}
+          <div className="grid grid-cols-4 gap-4 mt-10 md:px-10 mb-5 md:mb-0">
             {thumbnails}
           </div>
         </div>

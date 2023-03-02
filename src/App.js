@@ -7,6 +7,13 @@ import Cart from "./Cart.js";
 
 import "./App.css";
 
+const SneakerMetadata = {
+  id: 0,
+  name: "Fall Limited Edition Sneakers",
+  price: 125.0,
+  quantity: 0,
+};
+
 const originalCartItems = [
   {
     id: 0,
@@ -41,12 +48,13 @@ function App() {
       let newCartItems = cartItems;
       newCartItems[itemIndex].quantity += quantityChange;
 
-      console.log(newCartItems);
       setCartItems(newCartItems);
-      console.log(cartItems);
 
       // if item is not in cart, add it
     } else {
+      let sneakerData = SneakerMetadata;
+      sneakerData.quantity = quantityChange;
+      setCartItems([sneakerData]);
     }
   };
 

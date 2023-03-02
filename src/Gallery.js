@@ -27,6 +27,18 @@ function Gallery() {
   const [CurrentImageIndex, setCurrentImageIndex] = useState(0);
   const [ModalVisible, SetModalVisiblity] = useState(false);
 
+  const goPreviousImage = () => {
+    if (CurrentImageIndex == 0) {
+      setCurrentImageIndex(numImages - 1);
+    } else {
+      setCurrentImageIndex(CurrentImageIndex - 1);
+    }
+  };
+
+  const goNextImage = () => {
+    setCurrentImageIndex((CurrentImageIndex + 1) % numImages);
+  };
+
   let thumbnails = displayed_images.map((image, index) => (
     <button
       onClick={() => setCurrentImageIndex(index)}
@@ -39,8 +51,11 @@ function Gallery() {
 
   return (
     <div>
-      <button onClick={() => SetModalVisiblity(true)}>
-        {" "}
+      {/* Main Gallery image is also a button on larger screens to open toggle lightbox*/}
+      <button
+        onClick={() => SetModalVisiblity(true)}
+        className="hidden md:block"
+      >
         <img
           src={displayed_images[CurrentImageIndex].img}
           className="md:rounded-lg"
@@ -48,7 +63,28 @@ function Gallery() {
         />
       </button>
 
-      <div className="grid grid-cols-4 gap-4 mt-10 px-5 md:px-0 mb-5 md:mb-0">
+      {/* Main gallery image has previous/next buttons overlayed on top for mobile */}
+      <div className="relative block md:hidden mb-10 md:mb-0">
+        <img
+          src={displayed_images[CurrentImageIndex].img}
+          alt="main gallery image"
+        />
+        <button
+          onClick={goPreviousImage}
+          className="absolute left-0 top-1/2 bg-white rounded-full w-10 h-10 ml-2"
+        >
+          <img src={iconPrevious} className="mx-auto" />
+        </button>
+        <button
+          onClick={goNextImage}
+          className="absolute right-0 top-1/2 bg-white rounded-full w-10 h-10 mr-2"
+        >
+          <img src={iconNext} className="mx-auto" />
+        </button>
+      </div>
+
+      {/* Thumbnail buttons to switch main image */}
+      <div className="hidden sm:grid grid-cols-4 gap-4 mt-10 px-5 md:px-0 mb-5 md:mb-0">
         {thumbnails}
       </div>
 
@@ -68,22 +104,14 @@ function Gallery() {
             </button>
             {/* previous button */}
             <button
-              onClick={() => {
-                if (CurrentImageIndex == 0) {
-                  setCurrentImageIndex(numImages - 1);
-                } else {
-                  setCurrentImageIndex(CurrentImageIndex - 1);
-                }
-              }}
+              onClick={goPreviousImage}
               className="bg-white w-10 h-10 rounded-full absolute left-0 top-1/2"
             >
               <img src={iconPrevious} className="mx-auto" />
             </button>
             {/* Next button */}
             <button
-              onClick={() =>
-                setCurrentImageIndex((CurrentImageIndex + 1) % numImages)
-              }
+              onClick={goNextImage}
               className="bg-white w-10 h-10 rounded-full absolute right-0 top-1/2"
             >
               <img className="mx-auto" src={iconNext} />

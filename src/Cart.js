@@ -6,11 +6,11 @@ const thumbnails = {
   0: product1,
 };
 
-function Cart(props) {
-  let cart;
+function Cart({ cartItems, deleteCartItem }) {
+  let cartSection;
 
-  if (!props.items) {
-    cart = (
+  if (!cartItems || cartItems.length == 0) {
+    cartSection = (
       <div className="h-32 grid place-items-center">
         <span className="font-bold text-dark-grayish-blue">
           Your cart is empty.
@@ -18,9 +18,9 @@ function Cart(props) {
       </div>
     );
   } else {
-    let cartItems = (
+    let cartItemComponents = (
       <div>
-        {props.items.map((product) => (
+        {cartItems.map((product) => (
           <div className="h-12 flex items-center my-3" key={product.id}>
             {/* Thumbnail */}
             <div className="flex items-center">
@@ -42,7 +42,10 @@ function Cart(props) {
             </div>
             <div className="flex grow items-center">
               {/* Delete Button */}
-              <button className="mx-auto">
+              <button
+                onClick={() => deleteCartItem(product.id)}
+                className="mx-auto"
+              >
                 <img src={iconDelete} />
               </button>
             </div>
@@ -51,9 +54,9 @@ function Cart(props) {
       </div>
     );
 
-    cart = (
+    cartSection = (
       <div className="h-40 grid px-3 text-sm">
-        {cartItems}
+        {cartItemComponents}
         <a
           href="/"
           className="h-12 bg-orange text-white rounded-lg font-bold text-center flex justify-center flex-col"
@@ -69,7 +72,7 @@ function Cart(props) {
       <div className="border-b-2 py-2 px-3">
         <span>Cart</span>
       </div>
-      {cart}
+      {cartSection}
     </div>
   );
 }

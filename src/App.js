@@ -7,7 +7,7 @@ import Cart from "./Cart.js";
 
 import "./App.css";
 
-const cartItems = [
+const originalCartItems = [
   {
     id: 0,
     name: "Fall Limited Edition Sneakers",
@@ -18,6 +18,11 @@ const cartItems = [
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState(originalCartItems);
+
+  const deleteCartItem = () => {
+    setCartItems([]);
+  };
 
   const toggleCart = () => {
     setCartOpen(!cartOpen);
@@ -30,7 +35,7 @@ function App() {
       {/* Cart */}
       <div className={cartOpen ? "relative" : "hidden"}>
         <div className="absolute right-0 sm:pr-5 md:pr-0">
-          <Cart items={cartItems}></Cart>
+          <Cart cartItems={cartItems} deleteCartItem={deleteCartItem}></Cart>
         </div>
       </div>
 

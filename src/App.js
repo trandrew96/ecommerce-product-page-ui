@@ -60,9 +60,16 @@ function App() {
 
       {/* Cart */}
       <div className={cartOpen ? "relative" : "hidden"}>
-        <div className="absolute right-0 sm:pr-5 md:pr-0">
-          <Cart cartItems={cartItems} deleteCartItem={deleteCartItem}></Cart>
+        <div className="absolute right-0 sm:pr-5 md:pr-0 h-100 w-100">
+          <div className=" relative z-50">
+            <Cart cartItems={cartItems} deleteCartItem={deleteCartItem}></Cart>
+          </div>
         </div>
+        {/* Transparent background, because we want the cart to close when the user clicks outside of the popup */}
+        <div
+          onClick={toggleCart}
+          className="fixed top-0 left-0 right-0 bottom-0 block bg-transparent"
+        ></div>
       </div>
 
       {/* 2 planes on desktop, 1 plane on mobile */}

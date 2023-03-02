@@ -68,8 +68,8 @@ function App() {
 
       {/* Cart */}
       <div className={cartOpen ? "relative" : "hidden"}>
-        <div className="absolute right-0 sm:pr-5 md:pr-0 h-100 w-100">
-          <div className=" relative z-50">
+        <div className="absolute md:right-0 sm:pr-5 md:pr-0 h-100 w-screen md:w-100">
+          <div className="z-50 mx-auto md:mx-0 w-fit md:w-100 md:right-0 md:absolute relative">
             <Cart cartItems={cartItems} deleteCartItem={deleteCartItem}></Cart>
           </div>
         </div>

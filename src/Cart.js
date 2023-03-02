@@ -70,7 +70,7 @@ function Cart({ cartItems, deleteCartItem }) {
   }
 
   return (
-    <div className="w-80 my-5 relative border-2 bg-white rounded-lg shadow-xl">
+    <div className="w-80 my-5 border-2 bg-white rounded-lg shadow-xl">
       <div className="border-b-2 py-2 px-3">
         <span>Cart</span>
       </div>

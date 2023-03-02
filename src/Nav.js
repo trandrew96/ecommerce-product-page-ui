@@ -4,7 +4,7 @@ import logo from "./images/logo.svg";
 import cartIcon from "./images/icon-cart.svg";
 import avatar from "./images/image-avatar.png";
 
-function Nav() {
+function Nav({ toggleCart }) {
   const [sidebarOpen, setOpen] = useState(false);
 
   return (
@@ -110,7 +110,7 @@ function Nav() {
 
           {/* Cart, Profile */}
           <div className="flex ml-auto">
-            <button className="mx-10">
+            <button onClick={toggleCart} className="mx-10">
               <img src={cartIcon} alt="cart icon" />
             </button>
             <button className="w-16 hover:bg-orange p-1 rounded-full">

@@ -1,15 +1,37 @@
+import React, { useState } from "react";
+
 import Gallery from "./Gallery.js";
 import Description from "./Description.js";
 import Nav from "./Nav.js";
+import Cart from "./Cart.js";
 
 import "./App.css";
 
+const cartItems = [
+  {
+    id: 0,
+    name: "Fall Limited Edition Sneakers",
+    price: 125.0,
+    quantity: 3,
+  },
+];
+
 function App() {
+  const [cartOpen, setCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setCartOpen(!cartOpen);
+  };
+
   return (
     <div className="App max-w-screen-xl mx-auto md:px-10">
-      {/* Navbar */}
-      <div className="">
-        <Nav></Nav>
+      <Nav toggleCart={toggleCart}></Nav>
+
+      {/* Cart */}
+      <div className={cartOpen ? "relative" : "hidden"}>
+        <div className="absolute right-0 sm:pr-5 md:pr-0">
+          <Cart items={cartItems}></Cart>
+        </div>
       </div>
 
       {/* 2 planes on desktop, 1 plane on mobile */}

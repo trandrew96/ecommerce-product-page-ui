@@ -25,7 +25,7 @@ const active_thumbnail_class = "bg-orange p-1 md:rounded-lg ";
 function Gallery() {
   const numImages = displayed_images.length;
   const [CurrentImageIndex, setCurrentImageIndex] = useState(0);
-  const [ModalVisible, SetModalVisiblity] = useState(true);
+  const [ModalVisible, SetModalVisiblity] = useState(false);
 
   let thumbnails = displayed_images.map((image, index) => (
     <button

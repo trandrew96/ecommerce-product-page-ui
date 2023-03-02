@@ -34,7 +34,9 @@ function Cart({ cartItems, deleteCartItem }) {
               <div>
                 <span className="">{product.name}</span>
                 <br />
-                <span>${product.price} x 3</span>
+                <span>
+                  ${product.price} x {product.quantity}
+                </span>
                 <span className="font-bold">
                   &nbsp; ${product.price * product.quantity}
                 </span>

@@ -84,7 +84,7 @@ function Gallery() {
       </div>
 
       {/* Thumbnail buttons to switch main image */}
-      <div className="hidden sm:grid grid-cols-4 gap-4 mt-10 px-5 md:px-0 mb-5 md:mb-0">
+      <div className="hidden md:grid grid-cols-4 gap-4 mt-10 px-5 md:px-0 mb-5 md:mb-0">
         {thumbnails}
       </div>
 

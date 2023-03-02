@@ -21,7 +21,7 @@ function Cart(props) {
     let cartItems = (
       <div>
         {props.items.map((product) => (
-          <div className="h-12 flex items-center my-3">
+          <div className="h-12 flex items-center my-3" key={product.id}>
             {/* Thumbnail */}
             <div className="flex items-center">
               <img

@@ -77,7 +77,7 @@ function Gallery() {
               }}
               className="bg-white w-10 h-10 rounded-full absolute left-0 top-1/2"
             >
-              <img src={iconPrevious} class="mx-auto" />
+              <img src={iconPrevious} className="mx-auto" />
             </button>
             {/* Next button */}
             <button

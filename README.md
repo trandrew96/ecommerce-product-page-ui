@@ -4,10 +4,11 @@ A sleek UI for an ecommerce product page complete with a lightbox modal, cart fu
 
 ## Demo Images
 
-![Desktop Screenshot](./demo-imgs/ecommerce-first-frame.gif)
+![Desktop Screenshot](./demo_imgs/ecommerce-first-frame.gif)
+
 ![Mobile Screenshot](./demo_imgs/mobile-screenshot.PNG)
 
-![Desktop Demo](./demo-imgs/ecommerce-page-demo-cropped.gif)
+![Desktop Demo](./demo_imgs/ecommerce-page-demo-cropped.gif)
 
 ## Available Scripts
 

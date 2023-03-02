@@ -110,10 +110,12 @@ function Nav({ toggleCart }) {
 
           {/* Cart, Profile */}
           <div className="flex ml-auto">
-            <button onClick={toggleCart} className="mx-10">
+            {/* Cart */}
+            <button onClick={toggleCart} className="mr-5 md:mx-10">
               <img src={cartIcon} alt="cart icon" />
             </button>
-            <button className="w-16 hover:bg-orange p-1 rounded-full">
+            {/* Avatar */}
+            <button className="w-8 my-2 md:my-0 md:w-16 hover:bg-orange p-1 rounded-full">
               <img src={avatar} alt="avatar" />
             </button>
           </div>

@@ -9,7 +9,7 @@ const thumbnails = {
 function Cart({ cartItems, deleteCartItem }) {
   let cartSection;
 
-  if (!cartItems || cartItems.length == 0) {
+  if (!cartItems || cartItems.length === 0) {
     cartSection = (
       <div className="h-32 grid place-items-center">
         <span className="font-bold text-dark-grayish-blue">
@@ -27,6 +27,7 @@ function Cart({ cartItems, deleteCartItem }) {
               <img
                 className="rounded-lg w-12 h-12"
                 src={thumbnails[product.id]}
+                alt="product thumbnail"
               />
             </div>
             <div className="flex items-center px-3 ">
@@ -48,7 +49,7 @@ function Cart({ cartItems, deleteCartItem }) {
                 onClick={() => deleteCartItem(product.id)}
                 className="mx-auto"
               >
-                <img src={iconDelete} />
+                <img src={iconDelete} alt="delete icon" />
               </button>
             </div>
           </div>

@@ -2,11 +2,15 @@
 
 A sleek UI for an ecommerce product page complete with a lightbox modal, cart functionality, product image gallery, and responsive design. Built using React and Tailwindcss. The app design and assets were provided by frontend mentor, but entirely coded by myself.
 
-## Demo Images
+[Try the live demo!](https://ecommerce-page-d5cfb.web.app/ "live demo")
+
+## Screenshots
 
 ![Desktop Screenshot](./demo_imgs/ecommerce-first-frame.gif)
 
 ![Mobile Screenshot](./demo_imgs/mobile-screenshot.PNG)
+
+## Quick Demo
 
 ![Desktop Demo](./demo_imgs/ecommerce-page-demo-cropped.gif)
 

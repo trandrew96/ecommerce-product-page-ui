@@ -1,4 +1,4 @@
-## Functional Ecommerce Page (React + Tailwindcss)
+# Functional Ecommerce Page (React + Tailwindcss)
 
 A sleek UI for an ecommerce product page complete with a lightbox modal, cart functionality, product image gallery, and responsive design. Built using React and Tailwindcss. The app design and assets were provided by frontend mentor, but entirely coded by myself.
 

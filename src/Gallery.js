@@ -28,7 +28,7 @@ function Gallery() {
   const [ModalVisible, SetModalVisiblity] = useState(false);
 
   const goPreviousImage = () => {
-    if (CurrentImageIndex == 0) {
+    if (CurrentImageIndex === 0) {
       setCurrentImageIndex(numImages - 1);
     } else {
       setCurrentImageIndex(CurrentImageIndex - 1);
@@ -59,27 +59,24 @@ function Gallery() {
         <img
           src={displayed_images[CurrentImageIndex].img}
           className="md:rounded-lg"
-          alt="main gallery image"
+          alt="product"
         />
       </button>
 
       {/* Main gallery image has previous/next buttons overlayed on top for mobile */}
       <div className="relative block md:hidden mb-10 md:mb-0">
-        <img
-          src={displayed_images[CurrentImageIndex].img}
-          alt="main gallery image"
-        />
+        <img src={displayed_images[CurrentImageIndex].img} alt="product" />
         <button
           onClick={goPreviousImage}
           className="absolute left-0 top-1/2 bg-white rounded-full w-10 h-10 ml-2"
         >
-          <img src={iconPrevious} className="mx-auto" />
+          <img src={iconPrevious} className="mx-auto" alt="left arrow" />
         </button>
         <button
           onClick={goNextImage}
           className="absolute right-0 top-1/2 bg-white rounded-full w-10 h-10 mr-2"
         >
-          <img src={iconNext} className="mx-auto" />
+          <img src={iconNext} className="mx-auto" alt="right arrow" />
         </button>
       </div>
 
@@ -100,27 +97,32 @@ function Gallery() {
           {/* Main lightbox image, previous/next buttons, close btn*/}
           <div className="relative px-5 text-right">
             <button onClick={() => SetModalVisiblity(false)}>
-              <img src={closeIcon} />
+              <img src={closeIcon} alt="close lightbox" />
             </button>
             {/* previous button */}
             <button
               onClick={goPreviousImage}
               className="bg-white w-10 h-10 rounded-full absolute left-0 top-1/2"
             >
-              <img src={iconPrevious} className="mx-auto" />
+              <img
+                src={iconPrevious}
+                className="mx-auto"
+                alt="previous button"
+              />
             </button>
             {/* Next button */}
             <button
               onClick={goNextImage}
               className="bg-white w-10 h-10 rounded-full absolute right-0 top-1/2"
             >
-              <img className="mx-auto" src={iconNext} />
+              <img className="mx-auto" src={iconNext} alt="next button" />
             </button>
 
             {/* Main Lightbox Image */}
             <img
               className="mx-auto rounded-xl"
               src={displayed_images[CurrentImageIndex].img}
+              alt="product"
             />
           </div>
           {/* Thumbnails in lightbox */}

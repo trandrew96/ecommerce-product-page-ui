@@ -4,7 +4,7 @@ import logo from "./images/logo.svg";
 import cartIcon from "./images/icon-cart.svg";
 import avatar from "./images/image-avatar.png";
 
-function Nav({ toggleCart }) {
+function Nav({ toggleCart, numItems }) {
   const [sidebarOpen, setOpen] = useState(false);
 
   return (
@@ -111,7 +111,10 @@ function Nav({ toggleCart }) {
           {/* Cart, Profile */}
           <div className="flex ml-auto">
             {/* Cart */}
-            <button onClick={toggleCart} className="mr-5 md:mx-10">
+            <button onClick={toggleCart} className="mr-5 md:mx-10 relative">
+              <div className="bg-orange rounded-full text-white px-2 text-xs absolute left-3 top-3">
+                {numItems > 0 ? numItems : ""}
+              </div>
               <img src={cartIcon} alt="cart icon" />
             </button>
             {/* Avatar */}

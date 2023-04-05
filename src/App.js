@@ -28,9 +28,11 @@ const maxQuantity = 11;
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState(originalCartItems);
+  const [numItems, setNumItems] = useState(3);
 
   const deleteCartItem = () => {
     setCartItems([]);
+    setNumItems(0);
   };
 
   const addToCart = (productId, quantityChange) => {
@@ -49,12 +51,14 @@ function App() {
       newCartItems[itemIndex].quantity += quantityChange;
 
       setCartItems(newCartItems);
+      setNumItems(newCartItems[itemIndex].quantity);
 
       // if item is not in cart, add it
     } else {
       let sneakerData = SneakerMetadata;
       sneakerData.quantity = quantityChange;
       setCartItems([sneakerData]);
+      setNumItems(sneakerData.quantity);
     }
   };
 
@@ -64,7 +68,7 @@ function App() {
 
   return (
     <div className="App max-w-screen-xl mx-auto md:px-10">
-      <Nav toggleCart={toggleCart}></Nav>
+      <Nav toggleCart={toggleCart} numItems={numItems}></Nav>
 
       {/* Cart */}
       <div className={cartOpen ? "relative" : "hidden"}>

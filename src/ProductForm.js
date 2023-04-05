@@ -22,7 +22,7 @@ const ProductForm = ({ maxQuantity, productId, addToCart }) => {
           <div className="w-2/6 md:w-14 lg:w-20 flex text-center pl-5 md:pl-3">
             <button
               onClick={decrementQuantity}
-              className="md:mx-auto"
+              className="md:mx-auto hover:opacity-50"
               type="button"
             >
               <svg width="12" height="4" className="fill-orange">
@@ -39,7 +39,7 @@ const ProductForm = ({ maxQuantity, productId, addToCart }) => {
           <div className="w-2/6 md:w-14 lg:w-20 flex text-right md:text-center pr-5 md:pr-3">
             <button
               onClick={incrementQuantity}
-              className="ml-auto md:mx-auto"
+              className="ml-auto md:mx-auto hover:opacity-50"
               type="button"
             >
               <svg width="12" height="12" className="fill-orange">
@@ -54,7 +54,7 @@ const ProductForm = ({ maxQuantity, productId, addToCart }) => {
         <div className="w-full">
           <button
             onClick={() => addToCart(productId, quantity)}
-            className="bg-orange text-white w-full rounded-lg py-5 my-5 md:my-0 font-bold flex justify-center items-center"
+            className="bg-orange text-white w-full rounded-lg py-5 my-5 md:my-0 font-bold flex justify-center items-center hover:opacity-50"
             type="button"
           >
             <svg

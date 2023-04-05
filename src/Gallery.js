@@ -20,7 +20,7 @@ const displayed_images = [
   { img: product4, thumbnail: thumbnail4 },
 ];
 
-const active_thumbnail_class = "bg-orange p-1 md:rounded-lg ";
+const active_thumbnail_class = " outline outline-4 outline-orange ";
 
 function Gallery() {
   const numImages = displayed_images.length;
@@ -42,10 +42,17 @@ function Gallery() {
   let thumbnails = displayed_images.map((image, index) => (
     <button
       onClick={() => setCurrentImageIndex(index)}
-      className={index === CurrentImageIndex ? active_thumbnail_class : ""}
+      className={
+        (index === CurrentImageIndex ? active_thumbnail_class : "") +
+        "rounded-xl bg-clip-border bg-white"
+      }
       key={index}
     >
-      <img src={image.thumbnail} className="rounded-lg" alt="gallery button" />
+      <img
+        src={image.thumbnail}
+        className="rounded-lg hover:opacity-50 "
+        alt="gallery button"
+      />
     </button>
   ));
 

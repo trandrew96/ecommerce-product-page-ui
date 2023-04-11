@@ -102,7 +102,7 @@ function Gallery() {
         {/* Modal Content */}
         <div className="max-w-screen-sm mx-auto ">
           {/* Main lightbox image, previous/next buttons, close btn*/}
-          <div className="relative px-5 text-right">
+          <div className="relative px-6 text-right">
             {/* Close button */}
             <button
               onClick={() => SetModalVisiblity(false)}
@@ -122,20 +122,38 @@ function Gallery() {
             {/* previous button */}
             <button
               onClick={goPreviousImage}
-              className="bg-white w-10 h-10 rounded-full absolute left-0 top-1/2"
+              className="bg-white w-14 h-14 rounded-full absolute left-0 top-1/2 flex justify-center align-middle items-center"
             >
-              <img
-                src={iconPrevious}
-                className="mx-auto"
-                alt="previous button"
-              />
+              <svg
+                className="stroke-[#1D2026] hover:stroke-orange p-5"
+                viewBox="0 0 12 18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 1 3 9l8 8"
+                  stroke-width="3"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </button>
             {/* Next button */}
             <button
               onClick={goNextImage}
-              className="bg-white w-10 h-10 rounded-full absolute right-0 top-1/2"
+              className="bg-white w-14 h-14 rounded-full absolute right-0 top-1/2 flex justify-center align-middle items-center"
             >
-              <img className="mx-auto" src={iconNext} alt="next button" />
+              <svg
+                className="stroke-[#1D2026] hover:stroke-orange p-5"
+                viewBox="0 0 13 18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m2 1 8 8-8 8"
+                  stroke-width="3"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </button>
 
             {/* Main Lightbox Image */}
